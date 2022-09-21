@@ -1,0 +1,9 @@
+package com.xpand.challenge.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.xpand.challenge.model.Movie;
+
+public interface MovieRepository extends JpaRepository<Movie, Long> {
+    
+}

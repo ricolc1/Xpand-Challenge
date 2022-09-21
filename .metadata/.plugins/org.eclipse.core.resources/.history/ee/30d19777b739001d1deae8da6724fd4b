@@ -1,0 +1,62 @@
+package com.xpand.challenge.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+
+import com.xpand.challenge.model.Actor;
+
+public class MovieDTO {
+
+    private String title;
+    
+    private LocalDate date;
+    
+    private BigDecimal rank;
+    
+    private BigDecimal revenue;
+    
+    private List<Actor> actors;
+    
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public BigDecimal getRank() {
+        return rank;
+    }
+
+    public void setRank(BigDecimal rank) {
+        this.rank = rank;
+    }
+
+    public BigDecimal getRevenue() {
+        return revenue;
+    }
+
+    public void setRevenue(BigDecimal revenue) {
+        this.revenue = revenue;
+    }
+
+	public List<Actor> getActors() {
+		return this.actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+    
+
+}

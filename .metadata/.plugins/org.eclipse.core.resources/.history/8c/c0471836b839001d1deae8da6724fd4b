@@ -1,0 +1,79 @@
+package com.xpand.challenge.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.xpand.challenge.model.Actor;
+
+@Component
+public class MovieDTO {
+
+	@NotBlank(message = "Title must not be empty")
+    private String title;
+    
+    @NotNull(message = "Date must not be empty")
+	@JsonFormat(pattern = "yyyy/MM/dd")
+    private LocalDate date;
+    
+    @NotNull
+    @Max(value = 10, message = "Rank must be between 0 and 10")
+    @Min(value = 0, message = "Rank must be between 0 and 10")
+    private BigDecimal rank;
+    
+    @NotNull
+    @Min(value = 0, message = "Revenue must be greater than 0")
+    private BigDecimal revenue;
+    
+    private List<Actor> actors;
+    
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public BigDecimal getRank() {
+        return rank;
+    }
+
+    public void setRank(BigDecimal rank) {
+        this.rank = rank;
+    }
+
+    public BigDecimal getRevenue() {
+        return revenue;
+    }
+
+    public void setRevenue(BigDecimal revenue) {
+        this.revenue = revenue;
+    }
+
+	public List<Actor> getActors() {
+		return this.actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+    
+
+}

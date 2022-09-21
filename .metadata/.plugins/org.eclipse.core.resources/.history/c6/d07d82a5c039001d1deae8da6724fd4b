@@ -1,0 +1,31 @@
+package com.xpand.challenge.dto;
+
+import java.time.LocalDate;
+
+import com.xpand.challenge.enums.Gender;
+
+public class ActorDTO {
+
+	private String name;
+	private LocalDate birthDate;
+	private Gender gender;
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
+	public Gender getGender() {
+		return gender;
+	}
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+}

@@ -1,0 +1,63 @@
+package com.xpand.challenge.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.xpand.challenge.dto.ActorDTO;
+import com.xpand.challenge.service.ActorService;
+
+@RestController
+@RequestMapping(path = "/actors", produces = MediaType.APPLICATION_JSON_VALUE)
+public class ActorController {
+
+	private ActorService actorService;
+	
+	public ActorController(ActorService actorService) {
+        this.actorService = actorService;
+    }
+	
+	@GetMapping
+    public ResponseEntity<?> getActors() {
+        return ResponseEntity.ok().body(actorService.getActors());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getActor(@PathVariable Long id) {
+        return ResponseEntity.ok().body(actorService.getActor(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createActor(@Valid @RequestBody ActorDTO actorDTO) {
+        actorService.createActor(actorDTO);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateActor(@PathVariable Long id, @Valid @RequestBody ActorDTO actorDTO) {
+        actorService.updateActor(id, actorDTO);
+        return ResponseEntity.noContent().build();
+    }
+    
+    @PostMapping("/{id}/{movieId}")
+    public ResponseEntity<?> assignActor(@PathVariable Long id,
+    		@PathVariable Long movieId) {
+        actorService.assignActor(id, movieId);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteActor(@PathVariable Long id) {
+        actorService.deleteActor(id);
+        return ResponseEntity.noContent().build();
+    }
+}

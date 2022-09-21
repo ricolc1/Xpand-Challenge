@@ -1,0 +1,74 @@
+package com.xpand.challenge.model;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "actor")
+public class Actor {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false)
+    private Long id;
+	
+	@Column(name = "name")
+	private String name;
+	
+	@Column(name = "birth_date")
+	private LocalDate birthDate;
+	
+	@Column(name = "gender")
+	private String gender;
+	
+	@ManyToOne
+	private Long movieId;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public Long getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Long movie) {
+		this.movie = movie;
+	}
+	
+}

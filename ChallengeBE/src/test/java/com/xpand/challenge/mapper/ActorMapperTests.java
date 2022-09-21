@@ -1,0 +1,52 @@
+package com.xpand.challenge.mapper;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+
+import com.xpand.challenge.dto.ActorDTO;
+import com.xpand.challenge.dto.ActorDTOMapper;
+import com.xpand.challenge.dto.IdentifiableActorDTO;
+import com.xpand.challenge.enums.Gender;
+import com.xpand.challenge.model.Actor;
+
+public class ActorMapperTests {
+
+    @Test
+    void doTestFromActorDTO() {
+        ActorDTO dto = new ActorDTO();
+        dto.setName("Mock Actor");
+        dto.setBirthDate(LocalDate.now());
+        dto.setGender(Gender.FEMALE);
+        Actor actor = ActorDTOMapper.fromActorDTO(dto);
+        assertNotNull(actor);
+        assertEquals(actor.getName(), dto.getName());
+        assertEquals(actor.getGender(), dto.getGender());
+        assertEquals(actor.getBirthDate(), dto.getBirthDate());
+    }
+
+    @Test
+    void doTestToActorDTO() {
+        Actor actor = new Actor();
+        actor.setName("Mock Actor");
+        actor.setBirthDate(LocalDate.now());
+        actor.setGender(Gender.FEMALE);
+        IdentifiableActorDTO dto = ActorDTOMapper.toActorDTO(actor);
+        assertNotNull(dto);
+        assertEquals(actor.getId(), dto.getId());
+        assertEquals(actor.getName(), dto.getName());
+        assertEquals(actor.getGender(), dto.getGender());
+        assertEquals(actor.getBirthDate(), dto.getBirthDate());
+    }
+
+    @Test
+    void doTestNull() {
+        assertNull(ActorDTOMapper.toActorDTO(null));
+        assertNull(ActorDTOMapper.fromActorDTO(null));
+    }
+
+}

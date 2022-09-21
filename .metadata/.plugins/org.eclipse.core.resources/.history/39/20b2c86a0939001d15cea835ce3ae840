@@ -1,0 +1,5 @@
+package com.xpand.challenge.service.impl;
+
+public class DefaultActorService {
+
+}

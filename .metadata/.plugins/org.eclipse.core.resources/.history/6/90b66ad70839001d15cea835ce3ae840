@@ -1,0 +1,5 @@
+package com.xpand.challenge.dto;
+
+public class IdentifiableActorDTO {
+
+}

@@ -1,0 +1,44 @@
+package com.xpand.challenge.service.impl;
+
+import java.util.List;
+
+import com.xpand.challenge.dto.ActorDTO;
+import com.xpand.challenge.dto.IdentifiableActorDTO;
+import com.xpand.challenge.repository.ActorRepository;
+import com.xpand.challenge.service.ActorService;
+
+public class DefaultActorService implements ActorService{
+	
+	private final ActorRepository actorRepository;
+
+	@Override
+	public IdentifiableActorDTO createActor(ActorDTO movieDTO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IdentifiableActorDTO getActor(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<IdentifiableActorDTO> getActors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateActor(Long id, ActorDTO actorDto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteActor(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

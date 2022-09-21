@@ -1,0 +1,25 @@
+package com.xpand.challenge.validator.impl;
+
+import java.util.Optional;
+import com.xpand.challenge.dto.ActorDTO;
+import com.xpand.challenge.validator.Validator;
+
+public class ActorValidator implements Validator<ActorDTO> {
+
+    @Override
+    public void validate(ActorDTO actor) {
+        Optional.ofNullable(actor.getName())
+            .map(String::trim)
+            .filter(name -> !name.isEmpty())
+            .orElseThrow(() -> new IllegalArgumentException("Name must not be empty"));
+
+        Optional.ofNullable(actor.getBirthDate())
+            .orElseThrow(() -> new IllegalArgumentException("Birth date must not be empty"));
+
+        Optional.ofNullable(actor.getGender())
+        .map(String::trim)
+        .filter(gender -> !gender.isEmpty())
+        .orElseThrow(() -> new IllegalArgumentException("Gender must not be empty"));
+    }
+
+}

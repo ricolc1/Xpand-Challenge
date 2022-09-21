@@ -1,0 +1,43 @@
+package com.xpand.challenge.mapper;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import org.junit.jupiter.api.Test;
+
+import com.xpand.challenge.dto.ActorDTO;
+import com.xpand.challenge.dto.ActorDTOMapper;
+import com.xpand.challenge.dto.IdentifiableActorDTO;
+import com.xpand.challenge.model.Actor;
+
+public class ActorMapperTests {
+
+    @Test
+    void doTestfromMovieDTO() {
+        ActorDTO dto = new ActorDTO();
+        Actor actor = ActorDTOMapper.fromActorDTO(dto);
+        assertNotNull(actor);
+        assertEquals(actor.getName(), dto.getName());
+        assertEquals(actor.getGender(), dto.getGender());
+        assertEquals(actor.getBirthDate(), dto.getBirthDate());
+    }
+
+    @Test
+    void doTesttoMovieDTO() {
+        Actor actor = new Actor();
+        IdentifiableActorDTO dto = ActorDTOMapper.toActorDTO(actor);
+        assertNotNull(dto);
+        assertEquals(actor.getId(), dto.getId());
+        assertEquals(actor.getName(), dto.getName());
+        assertEquals(actor.getGender(), dto.getGender());
+        assertEquals(actor.getBirthDate(), dto.getBirthDate());
+    }
+
+    @Test
+    void doTestNull() {
+        assertNull(ActorDTOMapper.toActorDTO(null));
+        assertNull(ActorDTOMapper.fromActorDTO(null));
+    }
+
+}

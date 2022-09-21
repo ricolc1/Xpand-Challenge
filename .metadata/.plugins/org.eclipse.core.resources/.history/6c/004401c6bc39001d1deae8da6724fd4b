@@ -1,0 +1,5 @@
+package com.xpand.challenge.config;
+
+public class AppConfiguration {
+
+}

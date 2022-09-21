@@ -1,0 +1,19 @@
+package com.xpand.challenge.service;
+
+import java.util.List;
+
+import com.xpand.challenge.dto.IdentifiableMovieDTO;
+import com.xpand.challenge.dto.MovieDTO;
+
+public interface ActorService {
+    
+    IdentifiableMovieDTO createActor(MovieDTO movieDTO);
+
+    IdentifiableMovieDTO getActor(Long id);
+
+    List<IdentifiableMovieDTO> getActors();
+
+    void updateActor(Long id, MovieDTO movieDTO);
+
+    void deleteActor(Long id);
+}
